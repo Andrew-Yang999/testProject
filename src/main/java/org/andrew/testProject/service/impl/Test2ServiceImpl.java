@@ -36,7 +36,7 @@ public class Test2ServiceImpl extends ServiceImpl<TestMapper, TestBean> implemen
         testBean.setStatus(3);
         baseMapper.insert(testBean);
         insertD(salesBillNo);
-//        throw new RuntimeException();
+    //        throw new RuntimeException();
     }
     public void insertD(String salesBillNo) throws RuntimeException {
         TestBean testBean = new TestBean();
