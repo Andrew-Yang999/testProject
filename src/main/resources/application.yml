@@ -1,0 +1,43 @@
+system:
+  version: 1.0.0
+
+server:
+  port: 7001
+  tomcat:
+    min-spare-threads: 30
+    uri-encoding: utf-8
+    max-threads: 1000
+  servlet:
+    context-path: /testProject
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+      enabled: true
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: org.andrew.*.bean
+
+#####  mybatis-plus
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  typeAliasesPackage: org.andrew.testProject.bean
+  global-config:
+    db-config:
+      id-type: AUTO
+      field-strategy: NOT_EMPTY
+      db-column-underline: true
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    call-setters-on-nulls: true
